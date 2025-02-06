@@ -1,0 +1,19 @@
+<nav class="nav-container">
+  <ul class="left-side">
+    <li><a href="/">Home</a></li>
+    <li><a href="/activity">Activity</a></li>
+    <li><a href="/health">Health</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/useractive">User Activity</a></li>
+  </ul>
+
+  <ul class="right-side">
+    <% if (email) { %>
+      <li><a href="/dashboard"><button class="user-email"><%= email %></button></a></li>
+      <li><a href="/auth/logout"><button class="logout-but">Logout</button></a></li>
+    <% } else { %>
+      <li><a href="/auth/login"><button class="login-but">Log In / Register</button></a></li>
+    <% } %>
+  </ul>
+</nav>

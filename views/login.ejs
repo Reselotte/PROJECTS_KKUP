@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KKUP Login/Register Pages</title>
+  <link rel="stylesheet" href= "css/login.css">
+  <link rel="icon" href="/img/triangle.png"  type="image/x-icon">
+
+</head>
+<body class="login-page">
+  <nav class="nav-container">
+    <a href="#"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5v14m8-7h-2m0 0h-2m2 0v2m0-2v-2M3 11h6m-6 4h6m11 4H4c-.55228 0-1-.4477-1-1V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v12c0 .5523-.4477 1-1 1Z"/>
+    </svg>
+    </a>
+    <ul class="left-side">
+      <li><a href="/">Home</a></li>
+      <li><a href="/activity">Activity</a></li>
+      <li><a href="/health">Health</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/useractive">User Activity</a></li>
+    </ul>
+    <ul class="right-side">
+      <% if (email) { %>
+        <li>Welcome: <%= email %></button></li>
+        <li><a href="/auth/logout"><button class="logout-but">Logout</button></a></li>
+      <% } else { %>
+        <li><a href="/login"><button class="login-but">Log In / Register</button></a></li>
+      <% } %>
+    </ul>
+  </nav>
+
+    <!---Login form-->
+  <script src="script.js"></script>
+
+  <section class="home-login">
+    <div class="form_container">
+      <i class="uil uil-times form_close"></i>
+
+      <!---Login-->
+      <div class="form login_form">
+        <form action="/auth/login" method="POST">
+          <h2>Login</h2>
+          <div class="input_box">
+            <input type="email" placeholder="Enter your Email" name="email" required>
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+
+          <div class="input_box">
+            <input type="password" id="password" placeholder="Enter your password" name="password" required>
+           
+          </div>
+          
+
+          <div class="option_field">
+          <span class="checbox">
+            <input type ="checkbox" id="check">
+            <label for ="check">Remember Me</label>
+          </span>
+          
+          </div>
+
+          <button class="button" type="submit">Login Now</button>
+
+          <div class="login_signup"> Haven't create an account yet? 
+            x<a href="/signin" id="signup">Create Account</a> </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  
+  <script src="script.js" defer></script>
+
+
+  <footer>
+    <p>© 2025 Health Website | Designed for Seniors</p>
+    </footer>
+    
+</body>
+</html>

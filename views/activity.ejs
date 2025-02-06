@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KKUP Activity Page</title>
+  <link rel="stylesheet" href="/css/activity.css">
+  <link rel="icon" href="/img/triangle.png"  type="image/x-icon">
+</head>
+<body class="activity-page">
+
+  <nav class="nav-container">
+    <a href="#"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5v14m8-7h-2m0 0h-2m2 0v2m0-2v-2M3 11h6m-6 4h6m11 4H4c-.55228 0-1-.4477-1-1V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v12c0 .5523-.4477 1-1 1Z"/>
+    </svg>
+    </a>
+    <ul class="left-side">
+      <li><a href="/">Home</a></li>
+      <li><a href="/activity">Activity</a></li>
+      <li><a href="/health">Health</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/useractive">User Activity</a></li>
+    </ul>
+
+    <ul class="right-side">
+      <% if (email) { %>
+        <li>Welcome: <%= email %></button></li>
+        <li><a href="/auth/logout"><button class="logout-but">Logout</button></a></li>
+      <% } else { %>
+        <li><a href="/login"><button class="login-but">Log In / Register</button></a></li>
+      <% } %>
+    </ul>
+  </nav>
+
+  <section class="intro">
+    <br>
+    <h2>Let's visit our activity</h2>
+    
+    
+    <br>
+</section>
+
+  <div class="activity-container">
+    <h1 class="activity-title">Explore Our Activities In This Years!</h1>
+
+    <div class="activity-box-row">
+      <a href="/subRoutes/1Jan" class="activity-box">
+        <img src="/img/January.png" alt="January">
+        <p>January</p>
+      </a>
+      <a href="/subRoutes/2Feb" class="activity-box">
+        <img src="/img/February.png" alt="Febuary">
+        <p>Febuary</p>
+      </a>
+      <a href="/subRoutes/3March" class="activity-box">
+        <img src="/img/March.png" alt="March">
+        <p>March</p>
+      </a>
+      <a href="/subRoutes/4April" class="activity-box">
+        <img src="/img/April.png" alt="April">
+        <p>April</p>
+      </a>
+    </div>
+
+    <div class="activity-box-row">
+      <a href="/subRoutes/5May" class="activity-box">
+        <img src="/img/May.png" alt="May">
+        <p>May</p>
+      </a>
+      <a href="/subRoutes/6June" class="activity-box">
+        <img src="/img/June.png" alt="June">
+        <p>June</p>
+      </a>
+      <a href="//7July" class="activity-box">
+        <img src="/img/July.png" alt="July">
+        <p>July</p>
+      </a>
+      <a href="/subRoutes/8August" class="activity-box">
+        <img src="/img/August.png" alt="August">
+        <p>August</p>
+      </a>
+    </div>
+
+    <div class="activity-box-row">
+      <a href="/subRoutes/9September" class="activity-box">
+        <img src="/img/September.png" alt="September">
+        <p>September</p>
+      </a>
+      <a href="/subRoutes/10October" class="activity-box">
+        <img src="/img/October.png" alt="October">
+        <p>October</p>
+      </a>
+      <a href="/subRoutes/11November" class="activity-box">
+        <img src="/img/November.png" alt="November">
+        <p>November</p>
+      </a>
+      <a href="/subRoutes/12December" class="activity-box">
+        <img src="/img/December.png" alt="December">
+        <p>December</p>
+      </a>
+    </div>
+
+  </div>
+  <footer>
+    <p>© 2025 Health Website | Designed for Seniors</p>
+    </footer>
+    
+</body>
+</html>
