@@ -13,8 +13,9 @@ router.get("/", (req, res) => {
 
 
 //sign in
-router.post("/signin", (req, res) => {
+const crypto = require("crypto");
 
+router.post("/signin", (req, res) => {
   console.log("Recieved Data:", req.body);
   const { email, password, confirm_password } = req.body;
 
@@ -22,21 +23,26 @@ router.post("/signin", (req, res) => {
     return res.status(400).send("❌ โปรดกรอกข้อมูลให้ครบถ้วน");
   }
 
-if (!password !== !confirm_password) {
-  return res.status(400).send("❌ รหัสผ่านไม่ตรงกัน");
-}
-  db.query("INSERT INTO users (email, password) VALUES (?, ?)", [email, password], (err) => {
-    if (err) {
+  if (password !== confirm_password) {
+    return res.status(400).send("❌ รหัสผ่านไม่ตรงกัน");
+  }
 
+  // MD5
+  const hashedPassword = crypto.createHash("md5").update(password).digest("hex");
+
+  db.query("INSERT INTO users (email, password) VALUES (?, ?)", [email, hashedPassword], (err) => {
+    if (err) {
       if (err.code === "ER_DUP_ENTRY") {
         return res.status(400).send("❌ Email นี้ถูกใช้ไปแล้ว!");
       }
       return res.status(500).send("❌ ไม่สามารถสมัครสมาชิกได้");
     }
+
     res.cookie("email", email, { maxAge: 3600000, httpOnly: true });
-    res.redirect("/");  
+    res.redirect("/");
   });
 });
+
 
 //login
 router.post("/login", (req, res) => {
@@ -46,7 +52,10 @@ router.post("/login", (req, res) => {
     return res.status(400).send("❌ โปรดกรอกข้อมูลให้ครบถ้วน");
   }
 
-  db.query("SELECT * FROM users WHERE email = ? AND password = ?", [email, password], (err, results) => {
+  // check md5
+  const hashedPassword = crypto.createHash("md5").update(password).digest("hex");
+
+  db.query("SELECT * FROM users WHERE email = ? AND password = ?", [email, hashedPassword], (err, results) => {
     if (err || results.length === 0) {
       return res.status(401).send("❌ อีเมลหรือรหัสผ่านไม่ถูกต้อง");
     }
@@ -55,6 +64,7 @@ router.post("/login", (req, res) => {
     res.redirect("/");
   });
 });
+
 
 
 //log out
