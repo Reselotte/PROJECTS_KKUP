@@ -106,7 +106,7 @@ Welcome to the **Back End** setup guide! I assume you've already read `front_end
 11. Open **HeidiSQL** and click **+New**. Change:
     - **User**: `root` → `admin`
     - **Password**: `1234`
-    - **Repeatpassword**: '1234`
+    - **Repeatpassword**: `1234`
     - Click **Open**.
 12. Click **Toolbar** → **File** → **Load SQL File**, then select `KKUP_DATABASE`.
 13. Done! Now, try running the project:
